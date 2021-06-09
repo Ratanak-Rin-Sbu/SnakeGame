@@ -16,7 +16,7 @@ public class DynamicArrayDeque<E> implements Deque<E> {
         data = (E[]) new Object[capacity];
     }
 
-    //TODO: implement DynamicArrayDeque
+    //      implement DynamicArrayDeque
     //      in addFirst and addLast, resize when the array is full
     public int size() {
         return size;
