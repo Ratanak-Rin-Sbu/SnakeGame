@@ -1,5 +1,3 @@
-// Name: Ratanak Rin
-// Email: ratanak.rin@stonybrook.edu
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
