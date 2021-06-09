@@ -1,5 +1,3 @@
-// Name: Ratanak Rin
-// Email: ratanak.rin@stonybrook.edu
 
 import java.util.Iterator;
 import java.util.Random;
@@ -36,8 +34,7 @@ public class SnakeWorld {
             create();
         }
         public int create() {
-            //Random rand = new Random();
-            //TODO: randomly place an apple at (x,y) such that
+            // randomly place an apple at (x,y) such that
             // 1. 0 <= x < WIDTH,
             // 2. 0 <= y < HEIGHT, and
             // 3. it does not hit the wall nor the snake (use the hit method)
@@ -66,12 +63,12 @@ public class SnakeWorld {
             blocks = new DynamicArrayDeque<Pos>();
             
             for(int x = 0; x < WIDTH; x++) {
-                //TODO: add (x, 0) and (x, HEIGHT-1) to blocks
+                // add (x, 0) and (x, HEIGHT-1) to blocks
                 blocks.addFirst(new Pos(x,0));
                 blocks.addFirst(new Pos(x, HEIGHT-1));
             }
             for(int y = 0; y < HEIGHT; y++) {
-                //TODO: add (0, y) and (WIDTH-1, y) to blocks
+                // add (0, y) and (WIDTH-1, y) to blocks
                 blocks.addFirst(new Pos(0, y));
                 blocks.addFirst(new Pos (WIDTH - 1, y));
             }
@@ -87,7 +84,7 @@ public class SnakeWorld {
         }
 
         public Iterator<Pos> iterator() {
-            //TODO: return the iterator of blocks
+            // return the iterator of blocks
             return blocks.iterator();
         }
     }
@@ -106,21 +103,21 @@ public class SnakeWorld {
         public void init() {
             incr = 1;
             dir = 1; //E
-            //TODO: create body and 
-            //      add Pos(1, HEIGHT/2) to body
+            // create body and 
+            // add Pos(1, HEIGHT/2) to body
             body = new DynamicArrayDeque<>();
             body.addFirst(new Pos(1, HEIGHT/2));
         }
         public void turnRight() {
-            //TODO: rotate dir in this order: 0 -> 1 -> 2 -> 3 -> 0 -> 1 ...
+            // rotate dir in this order: 0 -> 1 -> 2 -> 3 -> 0 -> 1 ...
             dir = (dir + 1) % 4;
         }
         public void turnLeft() {
-            //TODO: rotate dir in this order: 0 -> 3 -> 2 -> 1 -> 0 -> 3 ...
+            // rotate dir in this order: 0 -> 3 -> 2 -> 1 -> 0 -> 3 ...
             dir = (dir + 3) % 4;
         }
         public Pos nextHeadPos() {
-            //TODO: get the head position from body
+            // get the head position from body
             //      add DX[dir] and DY[dir] to the head
             //      return the result as a Pos
             Pos head = body.first();
@@ -128,8 +125,8 @@ public class SnakeWorld {
             return next;
         }
         public void move() {
-            //TODO: add nextHeadPos() to body
-            //TODO: if incr > 0 then decrease it by 1
+            // add nextHeadPos() to body
+            // if incr > 0 then decrease it by 1
             //      otherwise, remove tail from body
             body.addFirst(nextHeadPos());
             if (incr > 0)
@@ -138,15 +135,15 @@ public class SnakeWorld {
                 body.removeLast();
         }
         public void grow() {
-            //TODO: increase incr by the size of body
+            // increase incr by the size of body
             incr += body.size();
         }
         public int size() {
-            //TODO: return the size of body
+            // return the size of body
             return body.size();
         }
         public Iterator<Pos> iterator() {
-            //TODO: return the iterator of body
+            // return the iterator of body
             return body.iterator();
         }
     }
@@ -181,13 +178,13 @@ public class SnakeWorld {
             return true;
         Pos head = snake.nextHeadPos();
         
-        //TODO: Check if head hits a wall or bites itself using the
+        // Check if head hits a wall or bites itself using the
         //      hit method below. If it did, set gameOver to true
         //      and return true
         if(hit(wall, head) || hit(snake, head))
             return (gameOver = true);
         
-        //TODO: Check if the head hits the apple. If it did
+        // Check if the head hits the apple. If it did
         //      1. increase score by the snake's size
         //      2. if apple.getCount() == MAX_APPLES call newStage()
         //         otherwise, grow the snake and create a new apple
